@@ -1,0 +1,46 @@
+body {
+    padding: 50px;
+    font-size: 16px;
+    font-family: monospace;
+}
+
+.file {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.no-files {
+    color: #dfe6e9;
+}
+
+.footer {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #f5f6fa;   
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer a {
+    color: #ED4C67;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.info {
+    opacity: 0.5;
+}
+
+.credit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 25px;
+    font-size: 1rem;
+    opacity: 0.25;
+}

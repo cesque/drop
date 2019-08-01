@@ -1,0 +1,19 @@
+{
+  "name": "drop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "internal-ip": "^4.3.0",
+    "menubar": "^6.0.6",
+    "micro": "^9.3.5-canary.2"
+  },
+  "devDependencies": {
+    "electron": "^5.0.6"
+  }
+}
