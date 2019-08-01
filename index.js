@@ -5,7 +5,7 @@ const { createError } = require('micro')
 const path = require('path')
 const fs = require('fs')
 const internalip = require('internal-ip')
-const { clipboard, nativeImage } = require('electron')
+const { clipboard, nativeImage, Menu } = require('electron')
 
 const PORT = 4500
 
@@ -72,12 +72,23 @@ mb.on('ready', async () => {
 
     mb.tray.setTitle('drop')
     mb.tray.setImage('./icon.png')
+
+    let contextMenu = Menu.buildFromTemplate([
+        { 
+            label: 'Copy URL',
+            click: () => {
+                clipboard.writeText('http://' + ip + ':' + PORT)
+            },
+        },
+        { 
+            label: 'Quit',
+            role: 'quit',
+        }
+    ])
+
+    mb.tray.setContextMenu(contextMenu)
     
     mb.tray.removeAllListeners('click')
-
-    mb.tray.on('click', event => {
-        clipboard.writeText('http://' + ip + ':' + PORT)
-    })
 
     mb.tray.on('drop-files', (event, dropped) => {
 
