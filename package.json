@@ -1,19 +1,36 @@
 {
   "name": "drop",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Cesque/drop"
+  },  
   "scripts": {
-    "start": "npx electron index"
+    "start": "npx electron main",
+    "build": "npx electron-builder",
+    "deploy": "npx electron-builder --publish always"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "auto-launch": "^5.0.5",
+    "electron-updater": "^4.1.2",
     "internal-ip": "^4.3.0",
     "menubar": "^6.0.6",
     "micro": "^9.3.5-canary.2"
   },
   "devDependencies": {
-    "electron": "^5.0.6"
+    "electron": "^5.0.6",
+    "electron-builder": "^21.2.0"
+  },
+  "build": {
+    "appId": "drop",
+    "icon": "app-icon.png",
+    "files": [
+      "**/*",
+      "build/*.*"
+    ]
   }
 }
