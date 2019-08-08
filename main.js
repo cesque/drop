@@ -58,7 +58,6 @@ mb.on('ready', async () => {
 
                 return page(urls.join(''))
             } else {
-                return page(`<p>${Menu}</p>`)
                 return page(`<p class=no-files>no files uploaded yet :)</p>`)
             }
         } else if (staticFiles.includes(req.url)) {
