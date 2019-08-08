@@ -69,7 +69,7 @@ mb.on('ready', async () => {
 
             if(!file) throw micro.createError(
                 404, 
-                'file not found for url "${req.url}" :('
+                `file not found for url "${req.url}" :(`
             )
             
             return fs.readFileSync(file.path)
