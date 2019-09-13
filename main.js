@@ -34,6 +34,9 @@ function page(contents) {
             </div>
             <div class="credit">by cesque :)</div>
         </body>
+        <script>
+            console.log(${JSON.stringify(files)})
+        </script>
         <script src="./build/script.js"></script>
     </html>`
 }
@@ -115,18 +118,21 @@ mb.on('ready', async () => {
     mb.tray.setContextMenu(contextMenu)
     
     mb.tray.on('drop-files', (event, dropped) => {
-
-        for(let file of dropped) {
-            files.push({
+        let droppedInfo = dropped.map(file => {
+            return {
                 path: file,
                 timeout: 180,
-                filename: path.basename(file),
-            })
-        }
+                filename: encodeURIComponent(path.basename(file)),
+            }
+        })
+
+        files.push(...droppedInfo)
 
         mb.tray.setImage(__dirname + '/build/icon-full.png')
 
-        clipboard.writeText('http://' + ip + ':' + PORT)
+        let lastFileURI = droppedInfo[droppedInfo.length - 1].filename;
+
+        clipboard.writeText('http://' + ip + ':' + PORT + '/' + lastFileURI)
     })
 
     mb.app.on('before-quit', () => {
