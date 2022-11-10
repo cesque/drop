@@ -22,7 +22,7 @@
     "micro": "^9.3.5-canary.2"
   },
   "devDependencies": {
-    "electron": "^5.0.6",
+    "electron": "^18.3.7",
     "electron-builder": "^21.2.0"
   },
   "build": {
